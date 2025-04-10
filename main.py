@@ -3,6 +3,7 @@ import taxid_parser
 import filter_protein
 import index_protein
 import filter_stage_2
+import fasta_diamond
 def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest="command")
@@ -18,6 +19,9 @@ def main():
     
     parser_filter_stage_2 = subparsers.add_parser("filter_stage_2")
     filter_stage_2.add_arguments(parser_filter_stage_2)
+
+    parser_fasta_diamond = subparsers.add_parser("fasta_diamond")
+    fasta_diamond.add_arguments(parser_fasta_diamond)
     
     args = parser.parse_args()
     if args.command == "taxid_parser":
@@ -27,7 +31,9 @@ def main():
     elif args.command == "index_protein":
         index_protein.execute(args)  
     elif args.command == "filter_stage_2":
-        filter_stage_2.execute(args)  
+        filter_stage_2.execute(args)
+    elif args.command == "fasta_diamond":
+        fasta_diamond.execute(args) 
     else:
         parser.print_help()  
 if __name__ == "__main__":
