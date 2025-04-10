@@ -6,5 +6,7 @@
 
 3)python your_script.py output_files virus.txt filtered_stage_2.txt
 
+4)python protein_taxid.txt input.fasta output.fasta mydatabase
+
 
 
